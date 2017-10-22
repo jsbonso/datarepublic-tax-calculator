@@ -1,0 +1,46 @@
+<div>
+
+  <div>
+    <label for="income">Annual Income: 
+        <input [(ngModel)]="annualIncome" name="income" type="number" 
+                (keyup)="calculateTax()" /></label>
+
+    <br />
+    <label for="includesSuperFlag">Including Super: 
+                    <input (change)="calculateTax()" [(ngModel)]="includesSuperFlag" name="includesSuperFlag" type="checkbox"/></label>
+    <br />
+
+    <label for="superpercentage">Superannuation Percentage: 
+        <input (keyup)="calculateSuperPercentage()" [(ngModel)]="customSuperPercentage" 
+         name="superpercentage" type="number" />%</label> 
+    <br />
+
+  </div>
+
+  <hr>
+
+  <div>
+
+    <label for="superamount">Superannuation Amount: {{superAmount | number:'.2' }}</label>
+    <br />
+
+
+    <label for="grossamount">
+      {{includesSuperFlag ? 'Gross​ ​+​ ​Superannuation​ amount' : 'Gross Amount'}}: {{grossamount | number:'.2' }}
+    </label>
+    <br />
+
+    <label for="taxamount">Tax Amount: {{taxamount | number:'.2' }}</label>
+    <br />
+
+
+    <label for="netamount">Net Amount: {{netamount | number:'.2' }}</label>
+    <br />
+
+
+    <label for="netplussuper">Net + Superannuation Amount: {{netplussuper | number:'.2' }}</label>
+    <br />
+  </div>
+
+
+</div>

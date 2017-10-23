@@ -12,7 +12,7 @@
 
     <label for="superpercentage">Superannuation Percentage: 
         <input (keyup)="calculateSuperPercentage()" [(ngModel)]="customSuperPercentage" 
-         name="superpercentage" type="number" />%</label> 
+         name="superpercentage" type="number" />%</label>
     <br />
 
   </div>
@@ -44,3 +44,217 @@
 
 
 </div>
+
+
+
+<hr>
+<br />
+<br />
+
+
+
+<form class="example-form">
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field>
+          <input name="income" matInput placeholder="Annual Income" type="number" 
+          class="example-right-align" [(ngModel)]="annualIncome" (keyup)="calculateTax()"
+          />
+          <span matPrefix>$&nbsp;</span>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-checkbox name="includesSuperFlag" class="example-margin" 
+        [(ngModel)]="includesSuperFlag" (change)="calculateTax()" [(ngModel)]="includesSuperFlag"
+         >Including Super?</mat-checkbox>
+
+
+      </td>
+
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field>
+          <input matInput placeholder="Superannuation Percentage"  (keyup)="calculateSuperPercentage()" 
+          [(ngModel)]="customSuperPercentage"  maxlength="2"
+          name="superpercentage" type="number" class="example-right-align">
+          <span matSuffix>%</span>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <mat-form-field>
+        <input readonly name="superamount" [(ngModel)]="superAmount" matInput placeholder="Superannuation Amount" 
+        type="number" class="example-right-align">
+
+        <span matPrefix>$&nbsp;</span>
+      </mat-form-field>
+    </tr>
+
+    <tr>
+      <mat-form-field>
+        <input readonly matInput [(ngModel)]="grossamount" name="grossamount"
+        placeholder="{{includesSuperFlag ? 'Gross​ ​+​ ​Superannuation​ amount' : 'Gross Amount'}}" 
+        type="number" class="example-right-align">
+
+        <span matPrefix>$&nbsp;</span>
+      </mat-form-field>
+    </tr>
+
+    <tr>
+      <mat-form-field>
+          <input name="taxamount" readonly matInput placeholder="Tax Amount" 
+        [(ngModel)]="taxamount" 
+        type="number" class="example-right-align">
+        <span matPrefix>$&nbsp;</span>
+      </mat-form-field>
+    </tr>
+
+    <tr>
+      <mat-form-field>
+        <input readonly name="netamount" matInput placeholder="Net Amount" [(ngModel)]="netamount" 
+        type="number" class="example-right-align">
+
+        <span matPrefix>$&nbsp;</span>
+      </mat-form-field>
+    </tr>
+
+    <tr>
+
+        <mat-form-field>
+            <input readonly name="netplussuper" matInput 
+            placeholder="Net + Superannuation Amount:" [(ngModel)]="netplussuper" 
+            type="number" class="example-right-align">
+    
+            <span matPrefix>$&nbsp;</span>
+          </mat-form-field>
+
+    </tr>
+
+  </table>
+</form>
+
+
+
+<hr>
+<br />
+<br />
+
+
+<mat-card class='card-demo'>
+  <mat-card-title>
+
+  </mat-card-title>
+  <mat-card-subtitle>
+
+  </mat-card-subtitle>
+
+  <mat-card-content>
+    <div class="containerX">
+      <div class="colorNested box" fxLayout="column">
+        <header>
+          <h3>Tax Calculator</h3>
+        </header>
+        <div id="main" [fxLayout]="direction" fxLayout.xs="column" fxFlex>
+          <nav fxFlex="1 6 40%" fxFlexOrder fxFlexOrder.xs="2"> 
+
+              <table class="example-full-width" >
+                  <tr>
+                    <td>
+                      <mat-form-field>
+                        <input name="income" matInput placeholder="Annual Income" type="number" 
+                        class="example-right-align" [(ngModel)]="annualIncome" (keyup)="calculateTax()"
+                        />
+                        <span matPrefix>$&nbsp;</span>
+                      </mat-form-field>
+                    </td>
+                    <td>
+                      <mat-checkbox name="includesSuperFlag" class="example-margin" 
+                      [(ngModel)]="includesSuperFlag" (change)="calculateTax()" [(ngModel)]="includesSuperFlag"
+                       >Including Super?</mat-checkbox>
+              
+              
+                    </td>
+              
+                  </tr>
+                  <tr>
+                    <td>
+                      <mat-form-field>
+                        <input matInput placeholder="Superannuation Percentage"  (keyup)="calculateSuperPercentage()" 
+                        [(ngModel)]="customSuperPercentage"  maxlength="2"
+                        name="superpercentage" type="number" class="example-right-align">
+                        <span matSuffix>%</span>
+                      </mat-form-field>
+                    </td>
+                  </tr>
+              </table>
+
+          </nav>
+          <article fxFlex="3 1 60%" fxFlexOrder fxFlexOrder.xs="1"> 
+
+              <table class="example-full-width" cellspacing="0">
+                  <tr>
+                    <mat-form-field>
+                      <input readonly name="superamount" [(ngModel)]="superAmount" matInput placeholder="Superannuation Amount" 
+                      type="number" class="example-right-align">
+              
+                      <span matPrefix>$&nbsp;</span>
+                    </mat-form-field>
+                  </tr>
+              
+                  <tr>
+                    <mat-form-field>
+                      <input readonly matInput [(ngModel)]="grossamount" name="grossamount"
+                      placeholder="{{includesSuperFlag ? 'Gross​ ​+​ ​Superannuation​ amount' : 'Gross Amount'}}" 
+                      type="number" class="example-right-align">
+              
+                      <span matPrefix>$&nbsp;</span>
+                    </mat-form-field>
+                  </tr>
+              
+                  <tr>
+                    <mat-form-field>
+                        <input name="taxamount" readonly matInput placeholder="Tax Amount" 
+                      [(ngModel)]="taxamount" 
+                      type="number" class="example-right-align">
+                      <span matPrefix>$&nbsp;</span>
+                    </mat-form-field>
+                  </tr>
+              
+                  <tr>
+                    <mat-form-field>
+                      <input readonly name="netamount" matInput placeholder="Net Amount" [(ngModel)]="netamount" 
+                      type="number" class="example-right-align">
+              
+                      <span matPrefix>$&nbsp;</span>
+                    </mat-form-field>
+                  </tr>
+              
+                  <tr>
+                      <mat-form-field>
+                          <input readonly name="netplussuper" matInput 
+                          placeholder="Net + Superannuation Amount:" [(ngModel)]="netplussuper" 
+                          type="number" class="example-right-align">
+                  
+                          <span matPrefix>$&nbsp;</span>
+                        </mat-form-field>
+              
+                  </tr>
+              
+                </table>
+
+
+          </article>
+        </div>
+        <footer fxFlexAlign="center">Developed By: Jon Bonso</footer>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-footer class="bottomPad">
+    <div class="hint"><div fxLayout="{{ direction }}" fxLayout.xs="column">
+      </div></div>
+  </mat-card-footer>
+</mat-card>

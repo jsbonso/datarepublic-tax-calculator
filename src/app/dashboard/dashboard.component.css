@@ -1,16 +1,16 @@
 .colorNested, .containerX {
-    min-height: 500px;
+    min-height: 700px;
     background: #999999;
   }
   
-  article, nav, aside, header, footer {
+  main, nav, aside, header, footer {
     margin: 4px;
     padding: 5px;
     border: 1px solid #cccc33;
     border-radius: 7px;
   }
   
-  #main > article {
+  #main > main {
     border-color: #FFFFFF;
     background: #FFFFFF;
     cursor: pointer;

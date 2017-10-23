@@ -1,4 +1,4 @@
-# DatarepublicTaxCalculator
+# Data Republic Tax Calculator
 
 Author: Jon Bonso
 

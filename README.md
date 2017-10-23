@@ -1,5 +1,9 @@
 # DatarepublicTaxCalculator
 
+Author: Jon Bonso
+
+See this live in action here: https://angular-cuqhxb.stackblitz.io/
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.3.
 
 ## Development server

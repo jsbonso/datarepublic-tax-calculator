@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('datarepublic-tax-calculator App', () => {
+describe('tax-calculator App', () => {
   let page: AppPage;
 
   beforeEach(() => {
